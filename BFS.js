@@ -221,6 +221,51 @@ class BinarySearchTree {
             return currentNode
         }
     }
+
+    breadthFirstsearch() {
+        let currentNode = this.root
+        // list for keep track of current node
+        const list = []
+        // queue for keep track of child node
+        const queue = []
+        queue.push(currentNode)
+
+        while (queue.length > 0) {
+            // pushing value to list
+            currentNode = queue.shift()
+            // shift means 
+            list.push(currentNode.value)
+            // Keep track of child
+            if (currentNode.left) {
+                queue.push(currentNode.left)
+            }
+            if (currentNode.right) {
+                queue.push(currentNode.right)
+            }
+        }
+
+        return list
+    }
+
+    recursiveBFS(queue, list) {
+        // base case
+        if (!queue.length) {
+            return list
+        }
+
+        const currentNode = queue.shift()
+        console.log(currentNode.value)
+        list.push(currentNode.value)
+
+        if (currentNode.left) {
+            queue.push(currentNode.left)
+        }
+        if (currentNode.right) {
+            queue.push(currentNode.right)
+        }
+
+        return this.recursiveBFS(queue, list)
+    }
 }
 
 const newBST = new BinarySearchTree()
@@ -252,5 +297,8 @@ newBST.remove(30)
 newBST.remove(55)
 newBST.remove(51)
 newBST.remove(70)
+
+newBST.breadthFirstsearch()
+newBST.recursiveBFS([newBST.root], [])
 
 console.log(newBST)
