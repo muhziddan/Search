@@ -266,6 +266,48 @@ class BinarySearchTree {
 
         return this.recursiveBFS(queue, list)
     }
+
+    inOrderDFS(node, list) {
+        if (node.left) {
+            this.inOrderDFS(node.left, list)
+        }
+
+        list.push(node.value)
+
+        if (node.right) {
+            this.inOrderDFS(node.right, list)
+        }
+
+        return list
+    }
+
+    preOrderDFS(node, list) {
+        list.push(node.value)
+
+        if (node.left) {
+            this.preOrderDFS(node.left, list)
+        }
+
+        if (node.right) {
+            this.preOrderDFS(node.right, list)
+        }
+
+        return list
+    }
+
+    postOrderDFS(node, list) {
+        if (node.left) {
+            this.preOrderDFS(node.left, list)
+        }
+
+        if (node.right) {
+            this.preOrderDFS(node.right, list)
+        }
+
+        list.push(node.value)
+
+        return list
+    }
 }
 
 const newBST = new BinarySearchTree()
@@ -298,7 +340,11 @@ newBST.remove(55)
 newBST.remove(51)
 newBST.remove(70)
 
-newBST.breadthFirstsearch()
-newBST.recursiveBFS([newBST.root], [])
+// newBST.breadthFirstsearch()
+// newBST.recursiveBFS([newBST.root], [])
 
-console.log(newBST)
+console.log(newBST.inOrderDFS(newBST.root, []))
+console.log(newBST.preOrderDFS(newBST.root, []))
+console.log(newBST.postOrderDFS(newBST.root, []))
+
+// console.log(newBST)
