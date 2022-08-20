@@ -1,13 +1,15 @@
 /*
 
 If you know a solution is not far from the root of the tree:
-BFS
+BFS, because it start searching from the closest node to the root
 
 If the tree is very deep and solutions are rare: 
-BFS/DFS
+BFS, because DFS:
+1. take long time
+2. because it uses recursion
 
 If the tree is very wide:
-BFS
+DFS, because BFS need too much memory
 
 If solutions are frequent but located deep in the tree:
 DFS
