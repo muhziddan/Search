@@ -3,7 +3,7 @@
 If you know a solution is not far from the root of the tree:
 BFS, because it start searching from the closest node to the root
 
-If the tree is very deep and solutions are rare: 
+If the tree is very deep and solutions are rare:
 BFS, because DFS:
 1. take long time
 2. because it uses recursion
