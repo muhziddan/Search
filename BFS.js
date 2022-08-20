@@ -297,11 +297,11 @@ class BinarySearchTree {
 
     postOrderDFS(node, list) {
         if (node.left) {
-            this.preOrderDFS(node.left, list)
+            this.postOrderDFS(node.left, list)
         }
 
         if (node.right) {
-            this.preOrderDFS(node.right, list)
+            this.postOrderDFS(node.right, list)
         }
 
         list.push(node.value)
